@@ -9,4 +9,8 @@ export class Tab2Page {
 
   constructor() {}
 
+  StartTimer(){
+    console.log("Test");
+  }
+
 }
