@@ -13,5 +13,21 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="stopwatch pt-3">
+    <h1 text-center class="color-white font-lg">
+      {{time}}
+    </h1>
+  <ion-grid>
+    <ion-row text-center class="mt-5">
+      <ion-col class="col-12" [hidden]="isStartHidden">
+        <ion-button color="success" (click)="start()">Start</ion-button>
+      </ion-col>
+      <ion-col class="col-12" [hidden]="isStopLapHidden">
+        <ion-button color="danger" (click)="stop()">Stop</ion-button>
+        <ion-button color="warning" (click)="stop()">Lap</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
 </ion-content>
