@@ -15,6 +15,9 @@ export class Tab2Page {
   public running = false
   public blankTime = "00:00.000"
   public time = "00:00.000"
+  public lapText:String = "Lap:";
+
+  //Booleans
   public isStartHidden = false;
   public isStopLapHidden = true;
   start() {
@@ -35,9 +38,16 @@ export class Tab2Page {
     stop() {
       this.running = false;
       this.timeStopped = new Date();
+      this.timeBegan = new Date();
+      this.stoppedDuration = null;
       this.isStartHidden = false;
       this.isStopLapHidden = true;
+      this.lapText = "Lap:";
       clearInterval(this.started);
+   }
+   lap() {
+    
+    this.lapText += '\n' + this.time;
    }
     reset() {
       this.running = false;
@@ -46,6 +56,9 @@ export class Tab2Page {
       this.timeBegan = null;
       this.timeStopped = null;
       this.time = this.blankTime;
+    }
+    clear(){
+      this.lapText = "Lap:";
     }
     zeroPrefix(num, digit) {
       let zero = '';
